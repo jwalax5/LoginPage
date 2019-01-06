@@ -1,5 +1,5 @@
-var path    = require('path');
-var hwp     = require('html-webpack-plugin');
+var path = require('path');
+var hwp = require('html-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, '/src/index.js'),
@@ -7,14 +7,22 @@ module.exports = {
         filename: 'build.js',
         path: path.join(__dirname, '/dist')
     },
-    module:{
-        rules:[{
+    module: {
+        rules: [{
             exclude: /node_modules/,
-            test: /\.js$/,
-            loader: 'babel-loader'
+            test: /\.(js|jsx)$/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            }
         }]
     },
-    plugins:[
-        new hwp({template:path.join(__dirname, '/src/index.html')})
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
+    plugins: [
+        new hwp({ template: path.join(__dirname, '/src/index.html') })
     ]
 }

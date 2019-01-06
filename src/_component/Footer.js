@@ -1,11 +1,16 @@
 import React from 'react';
 
+const fontStyle = {
+    'backgroundColor': 'transparent',
+    'color': 'white'
+};
+
 export const Footer = () => (
     <footer className="page-footer font-small blue pt-4 bg-dark">
         <div className="container-fluid text-center text-md-left">
             <div className="row">
                 <div className="col-md-6 mt-md-0 mt-3">
-                    <h5 className="text-uppercase">Footer Content</h5>
+                    <h5 className="text-uppercase" style={fontStyle}>Footer Content</h5>
                     <p>Here you can use rows and columns here to organize your footer content.</p>
 
                 </div>
